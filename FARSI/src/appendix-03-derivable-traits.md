@@ -1,18 +1,14 @@
-## Appendix C: Derivable Traits
+## پیوست ج: صفات مشتق پذیر
 
-In various places in the book, we’ve discussed the `derive` attribute, which
-you can apply to a struct or enum definition. The `derive` attribute generates
-code that will implement a trait with its own default implementation on the
-type you’ve annotated with the `derive` syntax.
+در جاهای مختلف کتاب، ویژگی `derive` را مورد بحث قرار داده‌ایم که می‌توانید آن را برای تعریف ساختار یا enum اعمال کنید. ویژگی «derive» کدی را تولید می‌کند که یک ویژگی را با اجرای پیش‌فرض خود روی نوعی که با نحو `derive` حاشیه‌نویسی کرده‌اید، پیاده‌سازی می‌کند.
 
-In this appendix, we provide a reference of all the traits in the standard
-library that you can use with `derive`. Each section covers:
+در این پیوست، ما مرجعی از تمام صفات موجود در کتابخانه استاندارد ارائه می‌کنیم که می‌توانید با `اشتقاق` استفاده کنید. هر بخش شامل:
 
-* What operators and methods deriving this trait will enable
-* What the implementation of the trait provided by `derive` does
-* What implementing the trait signifies about the type
-* The conditions in which you’re allowed or not allowed to implement the trait
-* Examples of operations that require the trait
+* چه عملگرها و روش هایی که این ویژگی را مشتق می کنند را قادر می سازد
+* اجرای صفت ارائه شده توسط `اشتقاق` چه می کند
+* اجرای صفت در مورد نوع دلالت دارد
+* شرایطی که در آن شما مجاز به اجرای این صفت هستید یا نه
+* نمونه هایی از عملیاتی که به این صفت نیاز دارند
 
 If you want different behavior from that provided by the `derive` attribute,
 consult the [standard library documentation](../std/index.html)<!-- ignore -->
