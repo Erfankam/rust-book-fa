@@ -10,27 +10,22 @@
 * شرایطی که در آن شما مجاز به اجرای این صفت هستید یا نه
 * نمونه هایی از عملیاتی که به این صفت نیاز دارند
 
-If you want different behavior from that provided by the `derive` attribute,
-consult the [standard library documentation](../std/index.html)<!-- ignore -->
-for each trait for details of how to manually implement them.
+اگر رفتاری متفاوت از رفتار ارائه شده توسط ویژگی `derive` می‌خواهید،
+برای جزئیات نحوه پیاده‌سازی دستی هر صفت، به [مستندات کتابخانه استاندارد](../std/index.html)<!-- ignore --> مراجعه کنید.
 
-The rest of the traits defined in the standard library can’t be implemented on
-your types using `derive`. These traits don’t have sensible default behavior,
-so it’s up to you to implement them in the way that makes sense for what you’re
-trying to accomplish.
+بقیه صفات تعریف شده در کتابخانه استاندارد را نمی توان با استفاده از `derive` روی انواع شما پیاده سازی کرد.
+این ویژگی‌ها رفتار پیش‌فرض معقولی ندارند، بنابراین این شما هستید که باید آن‌ها را به گونه‌ای اجرا کنید که برای آنچه می‌خواهید انجام دهید منطقی باشد.
 
-An example of a trait that can’t be derived is `Display`, which handles
-formatting for end users. You should always consider the appropriate way to
-display a type to an end user. What parts of the type should an end user be
-allowed to see? What parts would they find relevant? What format of the data
-would be most relevant to them? The Rust compiler doesn’t have this insight, so
-it can’t provide appropriate default behavior for you.
+نمونه‌ای از ویژگی‌هایی که نمی‌توان آن را استخراج کرد `Display` است که قالب‌بندی را برای کاربران نهایی انجام می‌دهد.
+همیشه باید روش مناسبی را برای نمایش یک نوع به کاربر نهایی در نظر بگیرید.
+کاربر نهایی باید چه بخش هایی از نوع را ببیند؟ چه بخش هایی را مرتبط می دانند؟
+چه فرمتی از داده ها می تواند بیشتر به آنها مربوط باشد؟
+کامپایلر Rust این بینش را ندارد، بنابراین نمی تواند رفتار پیش فرض مناسبی را برای شما ارائه دهد.
 
-The list of derivable traits provided in this appendix is not comprehensive:
-libraries can implement `derive` for their own traits, making the list of
-traits you can use `derive` with truly open-ended. Implementing `derive`
-involves using a procedural macro, which is covered in the
-[“Macros”][macros]<!-- ignore --> section of Chapter 19.
+فهرست صفات قابل مشتق ارائه شده در این پیوست جامع نیست:
+کتابخانه‌ها می‌توانند `derive` را برای ویژگی‌های خود پیاده‌سازی کنند،
+و فهرستی از ویژگی‌هایی را که می‌توانید از `derive` استفاده کنید، کاملاً باز ایجاد می‌کنند.
+پیاده‌سازی `derive` شامل استفاده از یک ماکرو رویه‌ای است که در بخش ["Macros"][macros]<!-- ignore --> در فصل ۱۹ پوشش داده شده است.
 
 ### `Debug` for Programmer Output
 
