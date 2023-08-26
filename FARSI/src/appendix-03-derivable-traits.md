@@ -27,18 +27,18 @@
 و فهرستی از ویژگی‌هایی را که می‌توانید از `derive` استفاده کنید، کاملاً باز ایجاد می‌کنند.
 پیاده‌سازی `derive` شامل استفاده از یک ماکرو رویه‌ای است که در بخش ["Macros"][macros]<!-- ignore --> در فصل ۱۹ پوشش داده شده است.
 
-### `Debug` for Programmer Output
+###  `Debug` برای خروجی برنامه‌نویس
 
-The `Debug` trait enables debug formatting in format strings, which you
-indicate by adding `:?` within `{}` placeholders.
+کتابخانه‌ی `Debug` قالب‌بندی اشکال‌زدایی را در رشته‌های قالبی فعال می‌کند،
+که با افزودن «:؟» در جای‌بان‌های «{}» نشان می‌دهید.
 
-The `Debug` trait allows you to print instances of a type for debugging
-purposes, so you and other programmers using your type can inspect an instance
-at a particular point in a program’s execution.
+کتابخانه‌ی `Debug` به شما امکان می‌دهد نمونه‌هایی از یک نوع را برای اهداف اشکال‌زدایی چاپ کنید،
+بنابراین شما و سایر برنامه‌نویسانی که از نوع داده‌ی شما استفاده می‌کنند،
+می‌توانید یک نمونه را در نقطه خاصی از اجرای برنامه بررسی کنید.
 
-The `Debug` trait is required, for example, in use of the `assert_eq!` macro.
-This macro prints the values of instances given as arguments if the equality
-assertion fails so programmers can see why the two instances weren’t equal.
+برای مثال در استفاده از ماکرو «assert_eq!» به کتابخانه‌ی `Debug`  نیاز است.
+اگر ادعای برابری ناموفق باشد، این ماکرو مقادیر نمونه‌هایی را که به‌عنوان آرگومان ارائه می‌شوند،
+چاپ می‌کند تا برنامه‌نویسان بتوانند ببینند که چرا این دو نمونه برابر نبودند.
 
 ### `PartialEq` and `Eq` for Equality Comparisons
 
