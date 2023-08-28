@@ -14,7 +14,8 @@
 برای جزئیات نحوه پیاده‌سازی دستی هر صفت، به [مستندات کتابخانه استاندارد](../std/index.html)<!-- ignore --> مراجعه کنید.
 
 بقیه صفات تعریف شده در کتابخانه استاندارد را نمی توان با استفاده از `derive` روی انواع شما پیاده سازی کرد.
-این ویژگی‌ها رفتار پیش‌فرض معقولی ندارند، بنابراین این شما هستید که باید آن‌ها را به گونه‌ای اجرا کنید که برای آنچه می‌خواهید انجام دهید منطقی باشد.
+این ویژگی‌ها رفتار پیش‌فرض معقولی ندارند،
+بنابراین این شما هستید که باید آن‌ها را به گونه‌ای اجرا کنید که برای آنچه می‌خواهید انجام دهید منطقی باشد.
 
 نمونه‌ای از ویژگی‌هایی که نمی‌توان آن را استخراج کرد `Display` است که قالب‌بندی را برای کاربران نهایی انجام می‌دهد.
 همیشه باید روش مناسبی را برای نمایش یک نوع به کاربر نهایی در نظر بگیرید.
@@ -40,29 +41,28 @@
 اگر ادعای برابری ناموفق باشد، این ماکرو مقادیر نمونه‌هایی را که به‌عنوان آرگومان ارائه می‌شوند،
 چاپ می‌کند تا برنامه‌نویسان بتوانند ببینند که چرا این دو نمونه برابر نبودند.
 
-### `PartialEq` and `Eq` for Equality Comparisons
+### 'PartialEq` و `Eq` برای مقایسه برابری
 
-The `PartialEq` trait allows you to compare instances of a type to check for
-equality and enables use of the `==` and `!=` operators.
+ویژگی `PartialEq` به شما امکان می دهد نمونه هایی از یک نوع‌داده را برای بررسی برابری مقایسه کنید
+و استفاده از عملگرهای `==` و `!=` را فعال می کند.
 
-Deriving `PartialEq` implements the `eq` method. When `PartialEq` is derived on
-structs, two instances are equal only if *all* fields are equal, and the
-instances are not equal if any fields are not equal. When derived on enums,
-each variant is equal to itself and not equal to the other variants.
+استخراج `PartialEq` روش `eq` را پیاده‌سازی می‌کند. چه زمانی
+PartialEq` بر روی ساختارها مشتق می شود،
+دو نمونه تنها در صورتی برابر هستند که *همه*‌ی فیلدها برابر باشند، 
+و نمونه ها برابر نیستند اگر هیچ‌یک از فیلدها مساوی نباشند.
+هنگامی که بر روی enums مشتق می شود، هر گونه‌داده با خود برابر است و با سایر انواع‌داده برابر نیست.
 
-The `PartialEq` trait is required, for example, with the use of the
-`assert_eq!` macro, which needs to be able to compare two instances of a type
-for equality.
+برای مثال، با استفاده از ماکرو `assert_eq!` که باید بتواند 
+دو حالت از یک نوع‌داده را برای برابری مقایسه کند، ویژگی `PartialEq` مورد نیاز است.
 
-The `Eq` trait has no methods. Its purpose is to signal that for every value of
-the annotated type, the value is equal to itself. The `Eq` trait can only be
-applied to types that also implement `PartialEq`, although not all types that
-implement `PartialEq` can implement `Eq`. One example of this is floating point
-number types: the implementation of floating point numbers states that two
-instances of the not-a-number (`NaN`) value are not equal to each other.
+صفت `Eq` هیچ روشی ندارد. هدف آن نشان دادن این است که برای هر مقدار از نوع‌داده‌ی مشروح، مقدار با خودش برابر است.
+ویژگی `Eq` را فقط می‌توان برای انواعی اعمال کرد که `PartialEq` را نیز پیاده‌سازی می‌کنند،
+اگرچه همه‌ی انواعی که `PartialEq` را پیاده‌سازی می‌کنند نمی‌توانند `Eq` را پیاده‌سازی کنند. 
+یکی از نمونه‌های آن انواع‌داده‌ی اعداد ممیز شناور است: 
+اجرای اعداد ممیز شناور بیان می‌کند که دو نمونه از مقدار غیر عددی (NaN) با یکدیگر برابر نیستند.
 
-An example of when `Eq` is required is for keys in a `HashMap<K, V>` so the
-`HashMap<K, V>` can tell whether two keys are the same.
+یک مثال از زمانی که `Eq` مورد نیاز است، برای کلیدهای `HashMap<K, V>` است، بنابراین
+`HashMap<K, V>` می تواند تشخیص دهد که آیا دو کلید یکسان هستند یا خیر.
 
 ### `PartialOrd` and `Ord` for Ordering Comparisons
 
