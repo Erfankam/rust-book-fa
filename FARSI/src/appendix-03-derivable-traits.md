@@ -64,19 +64,19 @@ PartialEq` بر روی ساختارها مشتق می شود،
 یک مثال از زمانی که `Eq` مورد نیاز است، برای کلیدهای `HashMap<K, V>` است، بنابراین
 `HashMap<K, V>` می تواند تشخیص دهد که آیا دو کلید یکسان هستند یا خیر.
 
-### `PartialOrd` and `Ord` for Ordering Comparisons
+### `PartialOrd` و `Ord` برای مقایسه‌های سفارش
 
-The `PartialOrd` trait allows you to compare instances of a type for sorting
-purposes. A type that implements `PartialOrd` can be used with the `<`, `>`,
-`<=`, and `>=` operators. You can only apply the `PartialOrd` trait to types
-that also implement `PartialEq`.
+ویژگی «PartialOrd» به شما امکان می‌دهد نمونه‌هایی از یک نوع را برای اهداف مرتب‌سازی مقایسه کنید.
+نوعی که «PartialOrd» را پیاده‌سازی می‌کند،
+می‌تواند با عملگرهای «<»، «>»، «<=» و «>=» استفاده شود.
+شما فقط می‌توانید ویژگی «PartialOrd» را برای انواعی اعمال کنید که «PartialEq» را نیز پیاده‌سازی می‌کنند.
 
-Deriving `PartialOrd` implements the `partial_cmp` method, which returns an
-`Option<Ordering>` that will be `None` when the values given don’t produce an
-ordering. An example of a value that doesn’t produce an ordering, even though
-most values of that type can be compared, is the not-a-number (`NaN`) floating
-point value. Calling `partial_cmp` with any floating point number and the `NaN`
-floating point value will return `None`.
+ارث‌بری‌کننده از  `PartialOrd` متد `partial_cmp` را پیاده‌سازی می‌کند، که یک
+`Option<Ordering>`
+ را برمی‌گرداند که وقتی مقادیر داده‌شده ترتیبی ایجاد نمی‌کنند، `None` خواهد بود.
+نمونه‌ای از مقداری که ترتیبی ایجاد نمی‌کند،
+حتی اگر بیشتر مقادیر از این نوع را می‌توان مقایسه کرد، مقدار ممیز شناور غیر عددی (NaN) است. فراخوانی `partial_cmp` با هر عدد ممیز شناور
+و مقدار ممیز شناور `NaN` `None` را برمی‌گرداند.
 
 When derived on structs, `PartialOrd` compares two instances by comparing the
 value in each field in the order in which the fields appear in the struct
